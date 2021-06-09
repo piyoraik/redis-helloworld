@@ -5,4 +5,4 @@ WORKDIR /src/redis
 
 RUN npm install
 
-ENTRYPOINT ["node", "."]
+ENTRYPOINT ["npm", "run", "watch"]
