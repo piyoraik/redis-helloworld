@@ -1,0 +1,20 @@
+version: "3"
+services:
+  node:
+    container_name: node
+    build:
+      context: ./
+      dockerfile: Dockerfile_node
+    volumes:
+      - ./src:/src
+    ports:
+      - 3000:3000
+    tty: true
+
+  redis:
+    container_name: redis
+    image: redis:6.2.4-buster
+    volumes:
+      - ./db:/data
+    ports:
+      - 6379:6379
