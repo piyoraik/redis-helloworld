@@ -5,6 +5,5 @@
 ```shell
 https://github.com/piyoraik/redis-helloworld.git
 cd redis-helloworld
-mkdir db
 make restart
 ```
