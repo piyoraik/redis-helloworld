@@ -1,6 +1,6 @@
 import { Request } from "express";
 
-type queryKeys = "id" | "name";
+type queryKeys = "id";
 
 export interface ExRequest extends Request {
 	query: {

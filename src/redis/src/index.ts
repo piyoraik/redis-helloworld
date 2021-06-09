@@ -1,4 +1,4 @@
-import express, { Request } from "express";
+import express from "express";
 import redis from "redis";
 import axios from "axios";
 import { User } from "./types/api/user";
@@ -12,11 +12,14 @@ const redisConfig = {
 	port: redisPort,
 };
 
-const app = express();
-const redisClient = redis.createClient(redisConfig);
+const app: express.Express = express();
+const redisClient: redis.RedisClient = redis.createClient(redisConfig);
 const MOCK_API = "https://jsonplaceholder.typicode.com/users/";
 
-const fetchData = async function (id: string, res: express.Response) {
+const fetchData = async function (
+	id: string,
+	res: express.Response
+): Promise<User> {
 	const userData = await axios
 		.get<User>(`${MOCK_API}?id=${id}`)
 		.then((response) => {
