@@ -1,13 +1,12 @@
 restart:
 	docker compose down
 	git pull origin main
-	docker compose build
-	docker compose up -d
+	docker compose up -d --build node
 
-node-restart:
+noderestart:
 	docker compose restart node
 
-node-logs:
+nodelogs:
 	docker logs -f node
 
 build:
@@ -21,3 +20,6 @@ down:
 
 ps:
 	docker compose ps -a
+
+delete-volume:
+	docker volume rm node_redis-data

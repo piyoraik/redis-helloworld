@@ -4,12 +4,11 @@ services:
     container_name: node
     build:
       context: ./
-      dockerfile: Dockerfile_node
+    command: npm run dev
     volumes:
-      - ./src:/src
+      - ./src/redis:/src
     ports:
       - 3000:3000
-    tty: true
 
   redis:
     container_name: redis
