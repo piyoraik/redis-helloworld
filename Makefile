@@ -1,7 +1,9 @@
 restart:
 	docker compose down
-	docker compose build
 	docker compose up -d
+
+node:
+	docker compose restart node
 
 build:
 	docker compose build --no-cache

@@ -19,15 +19,14 @@ client.on("connect", function () {
 });
 
 app.get("/", (req, res) => {
-	client.set("sato", "57歳");
+	client.set("sato", "value");
 	res.send("Hello World");
 });
 
 app.get("/sato", (req, res) => {
-	const sato = client.get("sato", (err, reply) => {
-		return reply;
+	const sato = client.get("sato", function (err, value) {
+		res.send(value);
 	});
-	res.send(sato);
 });
 
 app.listen(expressPort, () => {
