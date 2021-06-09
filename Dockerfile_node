@@ -3,4 +3,6 @@ FROM node:16.3.0-stretch
 COPY ./src /src
 WORKDIR /src/redis
 
+RUN npm install
+
 ENTRYPOINT ["node", "."]
